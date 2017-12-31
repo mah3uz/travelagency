@@ -20,7 +20,7 @@ class CreateTravelPackagesTable extends Migration
             $table->string('start_from', 100);
             $table->string('destination', 100);
             $table->integer('capacity');
-            $table->string('start_date');
+            $table->dateTime('start_date');
             $table->text('description');
             $table->integer('price');
             $table->timestamps();
