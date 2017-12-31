@@ -15,7 +15,17 @@
 
             <div class="pull-right">
 
-                <a class="btn btn-primary" href="{{ route('packages.index') }}"> Back</a>
+                @if (Route::has('login'))
+                    <div class="top-right links">
+                        @auth
+                            <a class="btn btn-primary" href="{{ route('packages.index') }}">Home</a>
+                            <a class="btn btn-primary" href="{{ url('logout') }}">Logout</a>
+                        @else
+                            <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
+                            <a class="btn btn-primary" href="{{ route('register') }}">Register</a>
+                        @endauth
+                    </div>
+                @endif
 
             </div>
 

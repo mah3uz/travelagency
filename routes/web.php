@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//Route::resource('packages', 'TravelPackegesController');
+
+Auth::routes();
+
+Route::prefix('manage')->middleware('auth')->group(function (){
+    Route::resource('packages', 'TravelPackegesController');
 });
-Route::resource('packages', 'TravelPackegesController');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('/', 'HomeController@index');

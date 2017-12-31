@@ -69,7 +69,9 @@
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
-                <a href="{{ url('/home') }}">Home</a>
+                <a href="{{ route('packages.index') }}">Home</a>
+                <a href="{{ route('logout') }}">Logout</a>
+                <a href="{{ route('packages.create') }}">Create</a>
             @else
                 <a href="{{ route('login') }}">Login</a>
                 <a href="{{ route('register') }}">Register</a>
@@ -78,9 +80,6 @@
     @endif
 
     <div class="content">
-        <div class="title m-b-md">
-            Travel Packages
-        </div>
         <div class="content-body">
             @foreach($packages as $package)
                 <h1>{{ $package->title }}</h1>
